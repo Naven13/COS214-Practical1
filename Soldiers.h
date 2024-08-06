@@ -52,6 +52,20 @@ public:
     virtual Soldiers* clonis() const = 0;
 
     Soldiers(const Soldiers& other);
+
+    void engage() const {
+        prepare();
+        execute();
+    }
+
+    void disengage() const {
+        retreat();
+        rest();
+    }
+    virtual void prepare() const = 0;
+    virtual void execute() const = 0;
+    virtual void retreat() const = 0;
+    virtual void rest() const = 0;
 };
 
 

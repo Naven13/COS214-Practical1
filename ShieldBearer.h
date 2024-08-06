@@ -2,6 +2,7 @@
 #define SHIELDBEARER_H
 
 #include "Soldiers.h"
+#include <iostream>
 
 class ShieldBearer : public Soldiers{
 public:
@@ -18,6 +19,19 @@ public:
         defencePerSoldier = other.defencePerSoldier;
         amountOfSoldiersPerUnit = other.amountOfSoldiersPerUnit;
         unitName = other.unitName;
+    }
+
+    void prepare() const override{
+        std::cout<<"ShieldBearer preparing for battle...."<<std::endl;
+    }
+    void execute() const override{
+        std::cout<<"ShieldBearer executing battle."<<std::endl;
+    }
+    void retreat() const override{
+        std::cout<<"ShieldBearer retreating from battle...."<<std::endl;
+    }
+    void rest() const override{
+        std::cout<<"ShieldBearer resting after battle."<<std::endl;
     }
 
     

@@ -114,6 +114,53 @@ int main() {
         std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
     }
 
+    std::cout << "\nTest 3: Template Method Pattern" << std::endl;
+    std::cout << "-----------------------------" << std::endl;
+
+    std::cout << "Test 3.1: Infantry Engage and Disengage:" << std::endl;
+    passed = 0;
+    total = 0;
+
+    ++total;
+    try {
+        infantry_unit->engage();
+        infantry_unit->disengage();
+        ++passed;
+        std::cout << GREEN << "\tTest 3.1.1 Passed" << RESET << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << RED << "\tTest 3.1.1 Failed - Exception: " << e.what() << RESET << std::endl;
+    }
+
+    std::cout << "Test 3.2: ShieldBearer Engage and Disengage:" << std::endl;
+
+    ++total;
+    try {
+        shieldbearer->engage();
+        shieldbearer->disengage();
+        ++passed;
+        std::cout << GREEN << "\tTest 3.2.1 Passed" << RESET << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << RED << "\tTest 3.2.1 Failed - Exception: " << e.what() << RESET << std::endl;
+    }
+
+    std::cout << "Test 3.3: Boatman Engage and Disengage:" << std::endl;
+
+    ++total;
+    try {
+        boatman->engage();
+        boatman->disengage();
+        ++passed;
+        std::cout << GREEN << "\tTest 3.3.1 Passed" << RESET << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << RED << "\tTest 3.3.1 Failed - Exception: " << e.what() << RESET << std::endl;
+    }
+
+    if (total == passed) {
+        std::cout << GREEN << "Passed " << passed << "/" << total << "\n" << RESET << std::endl;
+    } else {
+        std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
+    }
+
     // Clean up
     delete soldiers_factory;
     delete infantry_unit;

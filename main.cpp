@@ -99,6 +99,8 @@ int main() {
     ++total;
     Boatman* cloned_boatman = dynamic_cast<Boatman*>(boatman->clonis());
     if (cloned_boatman != nullptr) {
+        //Testing to see if a deep copy was indeed made.
+        std::cout<<boatman<<std::endl;
         std::cout<< cloned_boatman<<std::endl;
         ++passed;
         std::cout << GREEN << "\tTest 2.3.1 Passed" << RESET << std::endl;

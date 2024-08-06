@@ -1,7 +1,7 @@
 #include "SoldiersFactory.h"
 
 
-SoldiersFactory::SoldiersFactory() : soldiers(new Soldiers()){
+SoldiersFactory::SoldiersFactory() : soldiers(nullptr){
 }
 
 SoldiersFactory::~SoldiersFactory() {

@@ -20,51 +20,106 @@ int main() {
     int passed = 0;
     int total = 0;
 
-    //test constructor
+    // Test constructor
     auto* soldiers_factory = new InfantryFactory();
 
     ++total;
-    if(soldiers_factory->calculateTotalHealthPerUnit() == (50*8)) {
+    if (soldiers_factory->calculateTotalHealthPerUnit() == (50 * 8)) {
         ++passed;
         std::cout << GREEN << "\tTest 1.1.1 Passed" << RESET << std::endl;
-    }else {
+    } else {
         std::cout << RED << "\tTest 1.1.1 Failed" << RESET << std::endl;
     }
 
     ++total;
-    if(soldiers_factory->calculateTotalDamagePerUnit() == (40*8)) {
+    if (soldiers_factory->calculateTotalDamagePerUnit() == (40 * 8)) {
         ++passed;
         std::cout << GREEN << "\tTest 1.1.2 Passed" << RESET << std::endl;
-    }else {
+    } else {
         std::cout << RED << "\tTest 1.1.2 Failed" << RESET << std::endl;
     }
 
     ++total;
-    if(soldiers_factory->calculateTotalDefencePerUnit() == (20*8)) {
+    if (soldiers_factory->calculateTotalDefencePerUnit() == (20 * 8)) {
         ++passed;
         std::cout << GREEN << "\tTest 1.1.3 Passed" << RESET << std::endl;
-    }else {
+    } else {
         std::cout << RED << "\tTest 1.1.3 Failed" << RESET << std::endl;
     }
 
     ++total;
-    Infantry* infantry_unit = dynamic_cast<Infantry *>(soldiers_factory->createUnit());
-    if(infantry_unit != nullptr) {
+    Infantry* infantry_unit = dynamic_cast<Infantry*>(soldiers_factory->createUnit());
+    if (infantry_unit != nullptr) {
         ++passed;
         std::cout << GREEN << "\tTest 1.1.4 Passed" << RESET << std::endl;
-    }
-    else {
+    } else {
         std::cout << RED << "\tTest 1.1.4 Failed" << RESET << std::endl;
     }
 
-    if(total == passed) {
-        std::cout << GREEN << "Passed "<< passed << "/" << total << "\n" << RESET << std::endl;
-    }else {
-        std::cout << RED << "Failed "<< passed << "/" << total << "\n" << RESET << std::endl;
+    if (total == passed) {
+        std::cout << GREEN << "Passed " << passed << "/" << total << "\n" << RESET << std::endl;
+    } else {
+        std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
     }
 
+    std::cout << "\nTest 2: Prototype Pattern" << std::endl;
+    std::cout << "-------------------------" << std::endl;
+
+    std::cout << "Test 2.1: Cloning Infantry:" << std::endl;
+    passed = 0;
+    total = 0;
+
+    // Test Infantry cloning
+    ++total;
+    Infantry* cloned_infantry = dynamic_cast<Infantry*>(infantry_unit->clonis());
+    if (cloned_infantry != nullptr) {
+        ++passed;
+        std::cout << GREEN << "\tTest 2.1.1 Passed" << RESET << std::endl;
+    } else {
+        std::cout << RED << "\tTest 2.1.1 Failed" << RESET << std::endl;
+    }
+
+    std::cout << "Test 2.2: Cloning ShieldBearer:" << std::endl;
+
+    // Test ShieldBearer cloning
+    auto* shieldbearer = new ShieldBearer();
+    ++total;
+    ShieldBearer* cloned_shieldbearer = dynamic_cast<ShieldBearer*>(shieldbearer->clonis());
+    if (cloned_shieldbearer != nullptr) {
+        ++passed;
+        std::cout << GREEN << "\tTest 2.2.1 Passed" << RESET << std::endl;
+    } else {
+        std::cout << RED << "\tTest 2.2.1 Failed" << RESET << std::endl;
+    }
+
+    std::cout << "Test 2.3: Cloning Boatman:" << std::endl;
+
+    // Test Boatman cloning
+    auto* boatman = new Boatman();
+    ++total;
+    Boatman* cloned_boatman = dynamic_cast<Boatman*>(boatman->clonis());
+    if (cloned_boatman != nullptr) {
+        std::cout<< cloned_boatman<<std::endl;
+        ++passed;
+        std::cout << GREEN << "\tTest 2.3.1 Passed" << RESET << std::endl;
+    } else {
+        std::cout << RED << "\tTest 2.3.1 Failed" << RESET << std::endl;
+    }
+
+    if (total == passed) {
+        std::cout << GREEN << "Passed " << passed << "/" << total << "\n" << RESET << std::endl;
+    } else {
+        std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
+    }
+
+    // Clean up
     delete soldiers_factory;
     delete infantry_unit;
+    delete cloned_infantry;
+    delete shieldbearer;
+    delete cloned_shieldbearer;
+    delete boatman;
+    delete cloned_boatman;
 
     return 0;
 }

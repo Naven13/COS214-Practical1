@@ -11,6 +11,22 @@ public:
     void vivificaMemento(ConcreteMemento &mem) override;
 
     ConcreteMemento * militusMemento() override;
+
+    Soldiers* clonis() const override{
+        return new Boatman(*this);
+    }
+
+    Boatman(const Boatman &other) : Soldiers(other){
+        healthPerSoldier = other.healthPerSoldier;
+        damagePerSoldier = other.damagePerSoldier;
+        defencePerSoldier = other.defencePerSoldier;
+        amountOfSoldiersPerUnit = other.amountOfSoldiersPerUnit;
+        unitName = other.unitName;
+    }
+
+    
+
+    
 };
 
 

@@ -40,7 +40,7 @@ public:
         return unitName;
     }
 
-    virtual void setAmountOfSoldiersPerUnit(int amountOfSoldiersPerUnit) {}
+    virtual void setAmountOfSoldiersPerUnit(int amountOfSoldiersPerUnit) {(void)amountOfSoldiersPerUnit;}
     virtual void setDamagePerSoldier(int damagePerSoldier);
     virtual void setDefencePerSoldier(int defencePerSoldier);
     virtual void setHealthPerSoldier(int healthPerSoldier);
@@ -48,6 +48,10 @@ public:
 
     virtual void vivificaMemento(ConcreteMemento& mem);
     virtual ConcreteMemento* militusMemento();
+
+    virtual Soldiers* clonis() const = 0;
+
+    Soldiers(const Soldiers& other);
 };
 
 

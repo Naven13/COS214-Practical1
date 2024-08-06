@@ -9,6 +9,20 @@ public:
     ~Infantry() override;
 
     ConcreteMemento * militusMemento() override;
+
+    Soldiers* clonis() const override{
+         return new Infantry(*this);
+    }
+
+    Infantry(const Infantry& other) : Soldiers(other){
+        healthPerSoldier = other.healthPerSoldier;
+        damagePerSoldier = other.damagePerSoldier;
+        defencePerSoldier = other.defencePerSoldier;
+        amountOfSoldiersPerUnit = other.amountOfSoldiersPerUnit;
+        unitName = other.unitName;
+    }
+
+    
 };
 
 

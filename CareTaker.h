@@ -13,6 +13,7 @@ public:
     ConcreteMemento* undo();
     void saveState(Soldiers& soldiers);
     ~CareTaker();
+    
 };
 
 

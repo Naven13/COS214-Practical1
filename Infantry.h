@@ -12,7 +12,7 @@ public:
     ConcreteMemento * militusMemento() override;
 
     Soldiers* clonis() const override{
-         return new Infantry(*this);
+        return new Infantry(*this);
     }
 
     Infantry(const Infantry& other) : Soldiers(other){
@@ -35,8 +35,6 @@ public:
     void rest() const override{
         std::cout<<"Infantry resting after battle."<<std::endl;
     }
-
-    
 };
 
 

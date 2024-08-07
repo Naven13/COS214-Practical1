@@ -33,8 +33,6 @@ public:
     void rest() const override{
         std::cout<<"ShieldBearer resting after battle."<<std::endl;
     }
-
-    
 };
 
 

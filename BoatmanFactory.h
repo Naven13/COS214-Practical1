@@ -3,12 +3,11 @@
 
 #include "SoldiersFactory.h"
 
-class BoatmanFactory : protected SoldiersFactory{
+class BoatmanFactory : public SoldiersFactory{
 
 public:
     BoatmanFactory();
     ~BoatmanFactory() override;
-    
     Soldiers * createUnit() override;
 };
 

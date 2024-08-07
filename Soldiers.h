@@ -40,7 +40,7 @@ public:
         return unitName;
     }
 
-    virtual void setAmountOfSoldiersPerUnit(int amountOfSoldiersPerUnit) {(void)amountOfSoldiersPerUnit;}
+    virtual void setAmountOfSoldiersPerUnit(int amountOfSoldiersPerUnit);
     virtual void setDamagePerSoldier(int damagePerSoldier);
     virtual void setDefencePerSoldier(int defencePerSoldier);
     virtual void setHealthPerSoldier(int healthPerSoldier);

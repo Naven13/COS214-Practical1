@@ -4,19 +4,31 @@
 SoldiersFactory::SoldiersFactory() : soldiers(nullptr){
 }
 
+SoldiersFactory::SoldiersFactory(Soldiers *s) {
+    this->soldiers = s;
+}
+
 SoldiersFactory::~SoldiersFactory() {
     delete soldiers;
 }
 
 int SoldiersFactory::calculateTotalDamagePerUnit() {
-    return soldiers->getDamagePerSoldier() * soldiers->getAmountOfSoldiersPerUnit();
-
+    if(soldiers!=nullptr) {
+        return soldiers->getDamagePerSoldier() * soldiers->getAmountOfSoldiersPerUnit();
+    }
+    return 0;
 }
 
 int SoldiersFactory::calculateTotalDefencePerUnit() {
-    return soldiers->getDefencePerSoldier() * soldiers->getAmountOfSoldiersPerUnit();
+    if(soldiers!=nullptr) {
+        return soldiers->getDefencePerSoldier() * soldiers->getAmountOfSoldiersPerUnit();
+    }
+   return 0;
 }
 
 int SoldiersFactory::calculateTotalHealthPerUnit() {
-    return soldiers->getHealthPerSoldier() * soldiers->getAmountOfSoldiersPerUnit();
+    if(soldiers!=nullptr) {
+        return soldiers->getHealthPerSoldier() * soldiers->getAmountOfSoldiersPerUnit();
+    }
+    return 0;
 }

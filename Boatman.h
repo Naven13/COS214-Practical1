@@ -37,10 +37,6 @@ public:
     void rest() const override{
         std::cout<<"Boatman resting after battle."<<std::endl;
     }
-
-    
-
-    
 };
 
 

@@ -254,7 +254,7 @@ int main() {
         std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
     }
 
-   ////////////////////////////////////
+    ////////////////////////////////////
     std::cout << "Soldier Test:" << std::endl;
     std::cout << "-----------------------" << std::endl;
     passed = 0;
@@ -536,7 +536,9 @@ int main() {
     }
 
     ++total;
-    if (infantry_memento->getDamagePerSoldier() == 100 && infantry_memento->getDefencePerSoldier() == 100 && infantry_memento->getAmountOfSoldiersPerUnit() == 100 && infantry_memento->getHealthPerSoldier() == 100 && infantry_memento->getUnitName() == "Tom's Infantry") {
+    if (infantry_memento->getDamagePerSoldier() == 100 && infantry_memento->getDefencePerSoldier() == 100 &&
+        infantry_memento->getAmountOfSoldiersPerUnit() == 100 && infantry_memento->getHealthPerSoldier() == 100 &&
+        infantry_memento->getUnitName() == "Tom's Infantry") {
         ++passed;
         std::cout << GREEN << "\tTest 2 Infanty Memento attributes Passed" << RESET << std::endl;
     } else {
@@ -544,19 +546,23 @@ int main() {
     }
 
     ++total;
-    if (boat_memento->getDamagePerSoldier() == 100 && boat_memento->getDefencePerSoldier() == 100 && boat_memento->getAmountOfSoldiersPerUnit() == 100 && boat_memento->getHealthPerSoldier() == 100 && boat_memento->getUnitName() == "Tom's Navy") {
+    if (boat_memento->getDamagePerSoldier() == 100 && boat_memento->getDefencePerSoldier() == 100 && boat_memento->
+        getAmountOfSoldiersPerUnit() == 100 && boat_memento->getHealthPerSoldier() == 100 && boat_memento->getUnitName()
+        == "Tom's Navy") {
         ++passed;
-        std::cout << GREEN << "\tTest 2 Boatman Memento attributes Passed" << RESET << std::endl;
+        std::cout << GREEN << "\tTest 3 Boatman Memento attributes Passed" << RESET << std::endl;
     } else {
-        std::cout << RED << "\tTest 2 Boatman Memento attributes Failed" << RESET << std::endl;
+        std::cout << RED << "\tTest 3 Boatman Memento attributes Failed" << RESET << std::endl;
     }
 
     ++total;
-    if (shield_memento->getDamagePerSoldier() == 100 && shield_memento->getDefencePerSoldier() == 100 && shield_memento->getAmountOfSoldiersPerUnit() == 100 && shield_memento->getHealthPerSoldier() == 100 && shield_memento->getUnitName() == "Tom's Shields") {
+    if (shield_memento->getDamagePerSoldier() == 100 && shield_memento->getDefencePerSoldier() == 100 && shield_memento
+        ->getAmountOfSoldiersPerUnit() == 100 && shield_memento->getHealthPerSoldier() == 100 && shield_memento->
+        getUnitName() == "Tom's Shields") {
         ++passed;
-        std::cout << GREEN << "\tTest 2 ShiledBearer Memento attributes Passed" << RESET << std::endl;
+        std::cout << GREEN << "\tTest 4 ShiledBearer Memento attributes Passed" << RESET << std::endl;
     } else {
-        std::cout << RED << "\tTest 2 ShiledBearer Memento attributes Failed" << RESET << std::endl;
+        std::cout << RED << "\tTest 4 ShiledBearer Memento attributes Failed" << RESET << std::endl;
     }
 
     std::cout << "Ending Militus Memento Test" << std::endl;
@@ -645,7 +651,8 @@ int main() {
     shield_state->setUnitName("Renamed ShieldBearer");
 
     ++total;
-    if (infantry_state->getDamagePerSoldier() == 10 && infantry_state->getDefencePerSoldier() == 10 && infantry_state->getAmountOfSoldiersPerUnit() == 10) {
+    if (infantry_state->getDamagePerSoldier() == 10 && infantry_state->getDefencePerSoldier() == 10 && infantry_state->
+        getAmountOfSoldiersPerUnit() == 10) {
         ++passed;
         std::cout << GREEN << "\tChange State Infantry Passed" << RESET << std::endl;
     } else {
@@ -654,15 +661,17 @@ int main() {
 
     infantry_state->vivificaMemento(*care_taker.undo());
     ++total;
-    if (infantry_state->getDamagePerSoldier() == 100 && infantry_state->getDefencePerSoldier() == 100 && infantry_state->getAmountOfSoldiersPerUnit() == 100) {
+    if (infantry_state->getDamagePerSoldier() == 100 && infantry_state->getDefencePerSoldier() == 100 && infantry_state
+        ->getAmountOfSoldiersPerUnit() == 100) {
         ++passed;
         std::cout << GREEN << "\tRestore state Infantry Passed" << RESET << std::endl;
     } else {
         std::cout << RED << "\tRestore state Infantry Failed" << RESET << std::endl;
     }
 
-     ++total;
-    if (boatman_state->getDamagePerSoldier() == 10 && boatman_state->getDefencePerSoldier() == 10 && boatman_state->getAmountOfSoldiersPerUnit() == 10) {
+    ++total;
+    if (boatman_state->getDamagePerSoldier() == 10 && boatman_state->getDefencePerSoldier() == 10 && boatman_state->
+        getAmountOfSoldiersPerUnit() == 10) {
         ++passed;
         std::cout << GREEN << "\tChange State Boatman Passed" << RESET << std::endl;
     } else {
@@ -671,15 +680,17 @@ int main() {
 
     boatman_state->vivificaMemento(*care_taker.undo());
     ++total;
-    if (boatman_state->getDamagePerSoldier() == 100 && boatman_state->getDefencePerSoldier() == 100 && boatman_state->getAmountOfSoldiersPerUnit() == 100) {
+    if (boatman_state->getDamagePerSoldier() == 100 && boatman_state->getDefencePerSoldier() == 100 && boatman_state->
+        getAmountOfSoldiersPerUnit() == 100) {
         ++passed;
         std::cout << GREEN << "\tRestore state Boatman Passed" << RESET << std::endl;
     } else {
         std::cout << RED << "\tRestore state Boatman Failed" << RESET << std::endl;
     }
 
-     ++total;
-    if (shield_state->getDamagePerSoldier() == 10 && shield_state->getDefencePerSoldier() == 10 && shield_state->getAmountOfSoldiersPerUnit() == 10) {
+    ++total;
+    if (shield_state->getDamagePerSoldier() == 10 && shield_state->getDefencePerSoldier() == 10 && shield_state->
+        getAmountOfSoldiersPerUnit() == 10) {
         ++passed;
         std::cout << GREEN << "\tChange State ShieldBearer Passed" << RESET << std::endl;
     } else {
@@ -688,7 +699,8 @@ int main() {
 
     shield_state->vivificaMemento(*care_taker.undo());
     ++total;
-    if (shield_state->getDamagePerSoldier() == 100 && shield_state->getDefencePerSoldier() == 100 && shield_state->getAmountOfSoldiersPerUnit() == 100) {
+    if (shield_state->getDamagePerSoldier() == 100 && shield_state->getDefencePerSoldier() == 100 && shield_state->
+        getAmountOfSoldiersPerUnit() == 100) {
         ++passed;
         std::cout << GREEN << "\tRestore state ShieldBearer Passed" << RESET << std::endl;
     } else {
@@ -701,6 +713,55 @@ int main() {
     } else {
         std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
     }
+
+    std::cout << "Testing Soldier hierachy constructors...." << std::endl;
+    passed = 0;
+    total = 0;
+
+    Infantry infantry_unit_2(1, 1, 1, 1, "unit2");
+
+    ++total;
+    if (infantry_unit_2.getUnitName() == "unit2" && infantry_unit_2.getDamagePerSoldier() == 1 && infantry_unit_2.
+        getDefencePerSoldier() == 1 && infantry_unit_2.getHealthPerSoldier() == 1 && infantry_unit_2.
+        getAmountOfSoldiersPerUnit() == 1) {
+        ++passed;
+        std::cout << GREEN << "\tInfantry Constructor Passed" << RESET << std::endl;
+    } else {
+        std::cout << RED << "\tInfantry Constructor Failed" << RESET << std::endl;
+    }
+
+    Boatman boatman_unit_2(1, 1, 1, 1, "unit2");
+
+    ++total;
+    if (boatman_unit_2.getUnitName() == "unit2" && boatman_unit_2.getDamagePerSoldier() == 1 && boatman_unit_2.
+        getDefencePerSoldier() == 1 && boatman_unit_2.getHealthPerSoldier() == 1 && boatman_unit_2.
+        getAmountOfSoldiersPerUnit() == 1) {
+        ++passed;
+        std::cout << GREEN << "\tBoatman Constructor Passed" << RESET << std::endl;
+    } else {
+        std::cout << RED << "\tBoatman Constructor Failed" << RESET << std::endl;
+    }
+
+    ShieldBearer shield_unit_2(1, 1, 1, 1, "unit2");
+
+    ++total;
+    if (shield_unit_2.getUnitName() == "unit2" && shield_unit_2.getDamagePerSoldier() == 1 && shield_unit_2.
+        getDefencePerSoldier() == 1 && shield_unit_2.getHealthPerSoldier() == 1 && shield_unit_2.
+        getAmountOfSoldiersPerUnit() == 1) {
+        ++passed;
+        std::cout << GREEN << "\tShieldBearer Constructor Passed" << RESET << std::endl;
+    } else {
+        std::cout << RED << "\tShieldBearer Constructor Failed" << RESET << std::endl;
+    }
+
+
+    std::cout << "Ending Soldier Hierachy Constructor Test" << std::endl;
+    if (total == passed) {
+        std::cout << GREEN << "Passed " << passed << "/" << total << "\n" << RESET << std::endl;
+    } else {
+        std::cout << RED << "Failed " << passed << "/" << total << "\n" << RESET << std::endl;
+    }
+
 
     // Clean up
     /*delete soldiers_factory;

@@ -6,21 +6,23 @@
 class Cohort : public CompositeUnit{
 
 public:
+    Cohort();
+
     Cohort(const Cohort& other);
 
     void move(Direction direction) override;
 
     void fight(Direction direction) override;
 
-    int getStrength() override;
+    int getStrength() const override;
 
-    int getAttackPower() override;
+    int getDefence() const override;
 
     bool add(UnitComponent *component) override;
 
     bool remove(UnitComponent *component) override;
 
-    std::vector<UnitComponent *> getUnits() override;
+    std::vector<UnitComponent *>& getUnits() override;
 
     ~Cohort() override;
 };

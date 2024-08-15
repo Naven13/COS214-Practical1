@@ -12,7 +12,7 @@ public:
 
     virtual bool remove(UnitComponent *component) = 0 ;
 
-    virtual std::vector<UnitComponent*> getUnits() =0;
+    virtual std::vector<UnitComponent*>& getUnits() =0;
 
     virtual ~CompositeUnit() = default;
 };

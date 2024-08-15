@@ -38,11 +38,11 @@ public:
 
     bool remove(UnitComponent *component) ;
 
-    int getStrength() override;
+    int getStrength() const override;
 
-    int getAttackPower() override;
+    int getDefence() const override;
 
-    std::vector<UnitComponent *> getUnits() override;
+    std::vector<UnitComponent *>& getUnits() override;
 
     ~Legion() override;
 

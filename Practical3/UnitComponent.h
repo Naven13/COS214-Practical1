@@ -6,8 +6,8 @@ class UnitComponent {
 public:
     virtual void move(Direction direction) = 0;
     virtual void fight(Direction direction) = 0;
-    virtual int getStrength()=0;
-    virtual int getAttackPower()=0;
+    virtual int getStrength() const =0;
+    virtual int getDefence() const =0;
     virtual ~UnitComponent() = default;
 
 };

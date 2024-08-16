@@ -1,6 +1,7 @@
 #ifndef COMPOSITEUNIT_H
 #define COMPOSITEUNIT_H
 
+#include <list>
 #include <vector>
 
 #include "UnitComponent.h"
@@ -12,7 +13,7 @@ public:
 
     virtual bool remove(UnitComponent *component) = 0 ;
 
-    virtual std::vector<UnitComponent*>& getUnits() =0;
+    virtual const std::list<UnitComponent*>& getUnits() const =0;
 
     virtual ~CompositeUnit() = default;
 };

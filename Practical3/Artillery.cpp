@@ -1,6 +1,6 @@
-#include "Infantry.h"
+#include "Artillery.h"
 
-Infantry &Infantry::operator=(const Infantry &other) {
+Artillery &Artillery::operator=(const Artillery &other) {
     this->damage = other.getDamage();
     this->defence = other.getDefence();
     this->health = other.getHealth();
@@ -10,15 +10,15 @@ Infantry &Infantry::operator=(const Infantry &other) {
     return *this;
 }
 
-bool Infantry::operator<(const Infantry &other) const {
+bool Artillery::operator<(const Artillery &other) const {
     return this->getSize() < other.getSize();
 }
 
-bool Infantry::operator==(const Infantry &other) const{
+bool Artillery::operator==(const Artillery &other) const {
     return this->getSize() == other.getSize();
 }
 
-void Infantry::move(Direction direction) {
+void Artillery::move(Direction direction) {
     /*switch (direction) {
         case Direction::North:
             ++y;
@@ -38,7 +38,7 @@ void Infantry::move(Direction direction) {
     }*/
 }
 
-void Infantry::fight(Direction direction) {
+void Artillery::fight(Direction direction) {
     /*switch (direction) {
         case Direction::North:
             ++y;
@@ -58,8 +58,8 @@ void Infantry::fight(Direction direction) {
     }*/
 }
 
-Infantry::~Infantry() = default;
+Artillery::~Artillery() = default;
 
-std::shared_ptr<UnitComponent> Infantry::clone() {
-    return std::make_shared<Infantry>(*this);
+std::shared_ptr<UnitComponent> Artillery::clone() {
+    return std::make_shared<Artillery>(*this);
 }

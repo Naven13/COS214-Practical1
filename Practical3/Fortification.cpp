@@ -1,7 +1,7 @@
 #include "Fortification.h"
 
 void Fortification::engage(std::shared_ptr<UnitComponent> &unit) {
-    if(unit->getSize() < this->minimumTroops){
+    if(unit->getSize() < getMinimumTroops()){
         //kill all troops
         return;
     }

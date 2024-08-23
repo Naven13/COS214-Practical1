@@ -5,7 +5,7 @@ LDFLAGS = --coverage
 LDLIBS = -lgcov
 
 # Source files
-SRCS = Infantry.cpp Cavalry.cpp Artillery.cpp Legion.cpp Ambush.cpp Flanking.cpp Fortification.cpp TacticalCommand.cpp main.cpp
+SRCS = Infantry.cpp Cavalry.cpp Artillery.cpp Legion.cpp Ambush.cpp Flanking.cpp Fortification.cpp TacticalCommand.cpp main.cpp Direction.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Headers

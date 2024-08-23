@@ -38,6 +38,7 @@ void Legion::fight(Direction direction) {
 
 bool Legion::add(std::shared_ptr<UnitComponent>&component) {
     units.push_back(component);
+    return true;
 }
 
 bool Legion::remove(std::shared_ptr<UnitComponent>&component) {

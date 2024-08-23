@@ -8,6 +8,7 @@
 class OpenFieldInfantry : public Infantry {
 public:
     void move(Direction direction) override {
+        
             switch (direction) {
             case Direction::North:
                 ++y;

@@ -2,6 +2,8 @@
 #define ARTILLERY_H
 
 #include "UnitComponent.h"
+#include <iostream>
+
 
 class Artillery : public UnitComponent{
 public:

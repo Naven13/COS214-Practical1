@@ -4,6 +4,8 @@
 #include <utility>
 
 #include "UnitComponent.h"
+#include <iostream>
+
 
 class Infantry : public UnitComponent{
 public:

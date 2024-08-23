@@ -2,6 +2,7 @@
 #define CAVALRY_H
 
 #include "UnitComponent.h"
+#include <iostream>
 
 class Cavalry : public UnitComponent{
 public:

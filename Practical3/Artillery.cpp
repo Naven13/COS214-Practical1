@@ -19,43 +19,15 @@ bool Artillery::operator==(const Artillery &other) const {
 }
 
 void Artillery::move(Direction direction) {
-    /*switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }*/
+
+   std::cout << "Artillery moves in direction " << direction << std::endl;
+
 }
 
 void Artillery::fight(Direction direction) {
-    /*switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }*/
+
+    std::cout << "Artillery fights in direction " << direction << std::endl;
+
 }
 
 Artillery::~Artillery() = default;

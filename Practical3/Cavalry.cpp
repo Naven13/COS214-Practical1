@@ -19,13 +19,45 @@ bool Cavalry::operator==(const Cavalry &other) const{
 }
 
 void Cavalry::move(Direction direction) {
-
+    switch (direction) {
+            case Direction::North:
+                ++y;
+                break;
+            case Direction::South:
+                --y;
+                break;
+            case Direction::East:
+                ++x;
+                break;
+            case Direction::West:
+                --x;
+                break;
+            default:
+                x = x;
+                break;
+        }
     std::cout << "Cavalry moves in direction " << direction << std::endl;
 
 }
 
 void Cavalry::fight(Direction direction) {
-    
+    switch (direction) {
+            case Direction::North:
+                ++y;
+                break;
+            case Direction::South:
+                --y;
+                break;
+            case Direction::East:
+                ++x;
+                break;
+            case Direction::West:
+                --x;
+                break;
+            default:
+                x = x;
+                break;
+        }
     std::cout << "Cavalry fights in direction " << direction << std::endl;
 
 }

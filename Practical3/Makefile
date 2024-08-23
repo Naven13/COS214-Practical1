@@ -5,11 +5,11 @@ LDFLAGS = --coverage
 LDLIBS = -lgcov
 
 # Source files
-SRCS = Infantry.cpp Cavalry.cpp Artillery.cpp Legion.cpp Ambush.cpp Flanking.cpp Fortification.cpp TacticalCommand.cpp main.cpp Direction.cpp
+SRCS = Infantry.cpp Cavalry.cpp Artillery.cpp Legion.cpp Ambush.cpp Flanking.cpp Fortification.cpp TacticalCommand.cpp main.cpp Direction.cpp TacticalPlanner.cpp TacticalMemento.cpp WarArchives.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 # Headers
-HEADERS = UnitComponent.h Infantry.h Cavalry.h Artillery.h CompositeUnit.h Legion.h Direction.h Cohort.h Century.h Ambush.h BattleStrategy.h Flanking.h Fortification.h TacticalCommand.h LegionUnit.h LegionFactory.h OpenField.h OpenFieldFactory.h Riverbank.h RiverbankFactory.h Woodland.h WoodlandFactory.h
+HEADERS = UnitComponent.h Infantry.h Cavalry.h Artillery.h CompositeUnit.h Legion.h Direction.h Cohort.h Century.h Ambush.h BattleStrategy.h Flanking.h Fortification.h TacticalCommand.h LegionUnit.h LegionFactory.h OpenField.h OpenFieldFactory.h Riverbank.h RiverbankFactory.h Woodland.h WoodlandFactory.h TacticalPlanner.h TacticalMemento.h WarArchives.h
 
 # Executable name
 TARGET = roman_battle_simulator

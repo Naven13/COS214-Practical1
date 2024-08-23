@@ -19,13 +19,45 @@ bool Infantry::operator==(const Infantry &other) const{
 }
 
 void Infantry::move(Direction direction) {
-    
+    switch (direction) {
+            case Direction::North:
+                ++y;
+                break;
+            case Direction::South:
+                --y;
+                break;
+            case Direction::East:
+                ++x;
+                break;
+            case Direction::West:
+                --x;
+                break;
+            default:
+                x = x;
+                break;
+        }
     std::cout << "Infantry moves in direction " << direction << std::endl;
 
 }
 
 void Infantry::fight(Direction direction) {
-    
+    switch (direction) {
+            case Direction::North:
+                ++y;
+                break;
+            case Direction::South:
+                --y;
+                break;
+            case Direction::East:
+                ++x;
+                break;
+            case Direction::West:
+                --x;
+                break;
+            default:
+                x = x;
+                break;
+        }
     std::cout << "Infantry fights in direction " << direction << std::endl;
 
 }

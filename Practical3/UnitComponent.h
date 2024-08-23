@@ -8,8 +8,8 @@ protected:
     int damage;
     int health;
     int size;
-    int x;
-    int y;
+    int x = 0;
+    int y = 0;
 
 public:
     UnitComponent(const int defence, const int damage, const int health, const int size, const int x, const int y): defence(defence), damage(damage), health(health), size(size), x(x), y(y){}

@@ -5,139 +5,51 @@
 #include "Cavalry.h"
 #include "Artillery.h"
 
-class OpenFieldInfantry : public Infantry {
+class OpenFieldInfantry : public Infantry{
 public:
-    void move(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "OpenFieldInfantry moves in direction " << direction << std::endl;
-    }
+    void move(Direction direction) override;
 
-    void fight(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "OpenFieldInfantry fights in direction " << direction << std::endl;
-    }
+    void fight(Direction direction) override;
+
+    ~OpenFieldInfantry();
+
+    UnitComponent * clone() override;
 };
 
-class OpenFieldCavalry : public Cavalry {
+class OpenFieldCavalry : public Cavalry, public UnitComponent {
 public:
-    void move(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "OpenFieldCavalry moves in direction " << direction << std::endl;
-    }
+    void move(Direction direction) override;
 
-    void fight(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "OpenFieldCavalry fights in direction " << direction << std::endl;
-    }
+    void fight(Direction direction) override;
+
+    ~OpenFieldCavalry();
+
+    UnitComponent* clone() override;
+
+    bool operator==(UnitComponent &other) override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
 };
 
-class OpenFieldArtillery : public Artillery {
-public:
-    void move(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "OpenFieldCavalry moves in direction " << direction << std::endl;
-    }
 
-    void fight(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "OpenFieldCavalry fights in direction " << direction << std::endl;
-    }
+class OpenFieldArtillery : public Artillery , public UnitComponent{
+public:
+    void move(Direction direction) override;
+    void fight(Direction direction) override;
+
+    ~OpenFieldArtillery() ;
+
+    UnitComponent* clone() override;
+
+    bool operator==(UnitComponent &other) override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
 };
 
-#endif // OPENFIELD_H
+
+
+#endif //OPENFIELD_H

@@ -1,5 +1,5 @@
-#ifndef WOODLAND_H
-#define WOODLAND_H
+#ifndef WOODLANDS_H
+#define WOODLANDS_H
 
 #include "Infantry.h"
 #include "Cavalry.h"
@@ -7,137 +7,45 @@
 
 class WoodlandInfantry : public Infantry {
 public:
-    void move(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "WoodlandInfantry moves in direction " << direction << std::endl;
-    }
+    void move(Direction direction) override;
 
-    void fight(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "WoodlandInfantry fights in direction " << direction << std::endl;
-    }
+    void fight(Direction direction) override;
+
+    Terrain getEnviroment() const override;
+
+    ~WoodlandInfantry() = default;
+
+    UnitComponent * clone() override;
 };
 
-class WoodlandCavalry : public Cavalry {
+class WoodlandCavalry : public Cavalry, public UnitComponent {
 public:
-    void move(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "WoodlandCavalry moves in direction " << direction << std::endl;
-    }
+    void move(Direction direction) override;
 
-    void fight(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "WoodlandCavalry fights in direction " << direction << std::endl;
-    }
+    void fight(Direction direction) override;
+
+    bool operator==(UnitComponent &other) override;
+
+    UnitComponent * clone() override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
 };
 
-class WoodlandArtillery : public Artillery {
+class WoodlandArtillery : public Artillery, public UnitComponent{
 public:
-    void move(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "WoodlandArtillery moves in direction " << direction << std::endl;
-    }
+    void move(Direction direction) override;
 
-    void fight(Direction direction) override {
-        switch (direction) {
-            case Direction::North:
-                ++y;
-                break;
-            case Direction::South:
-                --y;
-                break;
-            case Direction::East:
-                ++x;
-                break;
-            case Direction::West:
-                --x;
-                break;
-            default:
-                x = x;
-                break;
-        }
-        std::cout << "WoodlandArtillery fights in direction " << direction << std::endl;
-    }
+    void fight(Direction direction) override;
+
+    bool operator==(UnitComponent &other) override;
+
+    UnitComponent * clone() override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
 };
 
-#endif // WOODLAND_H
+#endif //WOODLANDS_H

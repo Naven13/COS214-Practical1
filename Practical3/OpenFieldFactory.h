@@ -1,4 +1,3 @@
-//(Concrete Factory Class)
 #ifndef OPENFIELDFACTORY_H
 #define OPENFIELDFACTORY_H
 
@@ -10,14 +9,19 @@ public:
     Infantry* createInfantry() override {
         return new OpenFieldInfantry();
     }
-    
+
     Cavalry* createCavalry() override {
         return new OpenFieldCavalry();
     }
-    
+
     Artillery* createArtillery() override {
         return new OpenFieldArtillery();
     }
-};
 
-#endif // OPENFIELDFACTORY_H
+    Legion * createLegion() override {
+        return new Legion();
+    }
+
+    ~OpenFieldFactory() override;
+};
+#endif //OPENFIELDFACTORY_H

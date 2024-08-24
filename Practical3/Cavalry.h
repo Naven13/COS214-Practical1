@@ -13,17 +13,15 @@ public:
 
     Cavalry & operator=(const Cavalry &other);
 
-    //bool operator==(const Cavalry& other) const;
-
     bool operator<(const Cavalry& other) const;
 
-    void move(Direction direction) override;
+    virtual void move(Direction direction) =0;
 
-    void fight(Direction direction) override;
+    virtual void fight(Direction direction) =0;
 
-    ~Cavalry() override;
+    virtual ~Cavalry();
 
-    UnitComponent* clone() override;
+    virtual UnitComponent* clone()  = 0;
 
     void applyDamage(int damage) override;
 

@@ -2,8 +2,6 @@
 #define ARTILLERY_H
 
 #include "UnitComponent.h"
-#include <iostream>
-
 
 class Artillery : public UnitComponent{
 public:
@@ -17,7 +15,7 @@ public:
 
     bool operator<(const Artillery& other) const;
 
-    bool operator==(const Artillery& other) const;
+   // bool operator==(const Artillery& other) const;
 
     void move(Direction direction) override;
 
@@ -25,7 +23,13 @@ public:
 
     ~Artillery() override;
 
-    std::shared_ptr<UnitComponent> clone() override;
+    UnitComponent* clone() override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
+
+    bool operator==(UnitComponent &other) override;
 };
 
 

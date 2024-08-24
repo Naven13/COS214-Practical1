@@ -4,8 +4,6 @@
 #include <utility>
 
 #include "UnitComponent.h"
-#include <iostream>
-
 
 class Infantry : public UnitComponent{
 public:
@@ -19,7 +17,7 @@ public:
 
     bool operator<(const Infantry& other) const;
 
-    bool operator==(const Infantry& other) const;
+    //bool operator==(const Infantry& other) const;
 
     void move(Direction direction) override;
 
@@ -27,7 +25,13 @@ public:
 
     ~Infantry() override;
 
-    std::shared_ptr<UnitComponent> clone() override;
+    UnitComponent* clone() override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
+
+    bool operator==(UnitComponent &other) override;
 };
 
 

@@ -6,9 +6,17 @@
 
 class Fortification : public BattleStrategy{
 public:
-    void engage(std::shared_ptr<UnitComponent> &unit) override;
+    Fortification(float successRate, int minTroops, int damagePotential, int defenceBonus, int executionTime,
+        Terrain bestEnviroment, int riskLevel)
+        : BattleStrategy(
+            successRate, minTroops, damagePotential, defenceBonus, executionTime, bestEnviroment, riskLevel) {
+    }
+
+    void engage(UnitComponent&unit,UnitComponent &enemy) override;
 
     ~Fortification() override;
+
+    BattleStrategy * clone() const override;
 };
 
 

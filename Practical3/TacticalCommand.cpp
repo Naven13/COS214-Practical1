@@ -1,34 +1,30 @@
 #include "TacticalCommand.h"
 
-TacticalCommand::TacticalCommand(BattleStrategy& strategy, WarArchives* archives) {
+void TacticalCommand::setStrategy(BattleStrategy *strategy) {
+    if(strategy!=nullptr) {
+        //delete old stategy
+        delete strategy;
+        this->strategy = strategy;
+    }
+    this->planner->restoreMemento(new TacticalMemento(strategy));
+}
+
+void TacticalCommand::chooseBestStrategy() {
+
+}
+
+void TacticalCommand::executeStrategy(UnitComponent& unit,UnitComponent& enemy) {
+    this->strategy->engage(unit,enemy);
+}
+
+TacticalCommand::TacticalCommand(BattleStrategy &strategy) {
     this->strategy = &strategy;
-    this->archives = archives;
-    this->planner = new TacticalPlanner(this->strategy);
+}
+
+TacticalCommand::TacticalCommand(BattleStrategy &strategy, WarArchives *archives) {
 }
 
 TacticalCommand::~TacticalCommand() {
     delete planner;
     delete strategy;
-}
-
-void TacticalCommand::setStrategy(BattleStrategy* strategy) {
-    if (this->strategy != nullptr) {
-        delete this->strategy;
-    }
-    this->strategy = strategy;
-    this->planner->restoreMemento(new TacticalMemento(strategy));
-}
-
-void TacticalCommand::chooseBestStrategy() {
-    // Example logic: Choose the first strategy in the archives
-    TacticalMemento* bestMemento = archives->getMemento("bestStrategy");
-    if (bestMemento != nullptr) {
-        setStrategy(bestMemento->getStoredStrategy()->clone());
-    }
-}
-
-void TacticalCommand::executeStrategy(std::shared_ptr<UnitComponent>& unit) {
-    if (strategy) {
-        strategy->engage(unit);
-    }
 }

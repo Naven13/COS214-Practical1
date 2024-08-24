@@ -12,11 +12,11 @@ public:
              bestEnviroment,riskLevel){
     }
 
-    void engage(std::shared_ptr<UnitComponent>& unit) override;
+    void engage(UnitComponent& unit,UnitComponent &enemy) override;
 
     ~Flanking() override;
 
-
+    BattleStrategy * clone() const override;
 };
 
 

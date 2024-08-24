@@ -5,9 +5,13 @@
 
 class Ambush : public BattleStrategy{
 public:
-    void engage(std::shared_ptr<UnitComponent> &unit) override;
+    void engage( UnitComponent&unit,UnitComponent &enemy) override;
 
     ~Ambush() override;
+
+    BattleStrategy * clone() const override;
+
+
 };
 
 

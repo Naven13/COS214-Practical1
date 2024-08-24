@@ -2,7 +2,6 @@
 #define CAVALRY_H
 
 #include "UnitComponent.h"
-#include <iostream>
 
 class Cavalry : public UnitComponent{
 public:
@@ -14,7 +13,7 @@ public:
 
     Cavalry & operator=(const Cavalry &other);
 
-    bool operator==(const Cavalry& other) const;
+    //bool operator==(const Cavalry& other) const;
 
     bool operator<(const Cavalry& other) const;
 
@@ -24,7 +23,13 @@ public:
 
     ~Cavalry() override;
 
-    std::shared_ptr<UnitComponent> clone() override;
+    UnitComponent* clone() override;
+
+    void applyDamage(int damage) override;
+
+    void die() override;
+
+    bool operator==(UnitComponent &other) override;
 };
 
 

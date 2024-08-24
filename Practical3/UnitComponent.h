@@ -3,6 +3,7 @@
 #include "Direction.h"
 #include <memory>
 #include <iostream>
+#include "BattleStrategy.h"
 class UnitComponent {
 protected:
     int defence;

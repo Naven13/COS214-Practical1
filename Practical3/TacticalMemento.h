@@ -1,5 +1,5 @@
-#ifndef TACTICAL_MEMENTO_H
-#define TACTICAL_MEMENTO_H
+#ifndef TACTICALMEMENTO_H
+#define TACTICALMEMENTO_H
 
 #include "BattleStrategy.h"
 
@@ -14,4 +14,6 @@ public:
     BattleStrategy* getStoredStrategy() const { return storedStrategy; }
 };
 
-#endif // TACTICAL_MEMENTO_H
+
+
+#endif //TACTICALMEMENTO_H

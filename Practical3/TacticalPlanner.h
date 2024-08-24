@@ -1,5 +1,5 @@
-#ifndef TACTICAL_PLANNER_H
-#define TACTICAL_PLANNER_H
+#ifndef TACTICALPLANNER_H
+#define TACTICALPLANNER_H
 
 #include "TacticalMemento.h"
 #include "BattleStrategy.h"
@@ -16,4 +16,5 @@ public:
     void restoreMemento(TacticalMemento* memento);
 };
 
-#endif // TACTICAL_PLANNER_H
+
+#endif //TACTICALPLANNER_H

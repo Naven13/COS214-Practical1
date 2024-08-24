@@ -19,13 +19,9 @@ void TacticalCommand::executeStrategy(UnitComponent& unit,UnitComponent& enemy) 
 
 TacticalCommand::TacticalCommand(BattleStrategy &strategy) {
     this->strategy = &strategy;
-    this->planner = new TacticalPlanner(&strategy); 
 }
 
 TacticalCommand::TacticalCommand(BattleStrategy &strategy, WarArchives *archives) {
-    this->strategy = &strategy;
-    this->planner = new TacticalPlanner(&strategy);  // Initialize planner
-    this->archives = archives;
 }
 
 TacticalCommand::~TacticalCommand() {

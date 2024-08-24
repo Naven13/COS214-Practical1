@@ -1,5 +1,5 @@
-#include "TacticalPlanner.h"
 
+#include "TacticalPlanner.h"
 TacticalMemento* TacticalPlanner::createMemento() const {
     return new TacticalMemento(currentStrategy);
 }

@@ -1,5 +1,5 @@
-#ifndef WAR_ARCHIVES_H
-#define WAR_ARCHIVES_H
+#ifndef WARARCHIVES_H
+#define WARARCHIVES_H
 
 #include "TacticalMemento.h"
 #include <map>
@@ -11,10 +11,11 @@ private:
 
 public:
     ~WarArchives();
-    
+
     void addTacticalMemento(TacticalMemento* memento, const std::string& label);
     void removeTacticalMemento(const std::string& label);
     TacticalMemento* getMemento(const std::string& label);
 };
 
-#endif // WAR_ARCHIVES_H
+
+#endif //WARARCHIVES_H

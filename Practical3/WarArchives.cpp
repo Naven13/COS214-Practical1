@@ -1,5 +1,4 @@
 #include "WarArchives.h"
-
 WarArchives::~WarArchives() {
     for (auto& pair : mementoMap) {
         delete pair.second;

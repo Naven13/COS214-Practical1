@@ -7,8 +7,8 @@
 class LegionUnit {
 public:
     virtual ~LegionUnit() = default;
-    virtual void move(Direction direction) = 0; // Pure virtual function
-    virtual void fight(Direction direction) = 0; // Pure virtual function
+    //virtual void move(Direction direction) = 0; // Pure virtual function
+    //virtual void fight(Direction direction) = 0; // Pure virtual function
 
 };
 

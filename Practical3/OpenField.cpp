@@ -1,33 +1,28 @@
 #include "OpenField.h"
 
-void OpenFieldInfantry::move(Direction direction) override {
+void OpenFieldInfantry::move(Direction direction)  {
     Infantry::move(direction);
     std::cout << "Infantry moves through the fields "<< direction << std::endl;
 }
 
-void OpenFieldInfantry::fight(Direction direction) override {
-    Infantry::fight(direction);
-    std::cout << "Infantry attacks from the fields " << direction << std::endl;
-}
-
-UnitComponent * OpenFieldInfantry::clone() {
-    return new OpenFieldInfantry(*this);
-}
-
-void OpenFieldCavalry::move(Direction direction) override {
+void OpenFieldCavalry::move(Direction direction)  {
     Cavalry::move(direction);
     std::cout << "Cavalry moves through the fields "<< direction << std::endl;
 }
 
-void OpenFieldCavalry::fight(Direction direction) override {
-    Cavalry::fight(direction);
-    std::cout << "Cavalry attacks from the fields " << direction << std::endl;
-}
-
-
 void OpenFieldArtillery::move(Direction direction) {
      Artillery::move(direction);
     std::cout << "Artillery moves through the fields "<< direction << std::endl;
+}
+
+void OpenFieldInfantry::fight(Direction direction)  {
+    Infantry::fight(direction);
+    std::cout << "Infantry attacks from the fields " << direction << std::endl;
+}
+
+void OpenFieldCavalry::fight(Direction direction)  {
+    Cavalry::fight(direction);
+    std::cout << "Cavalry attacks from the fields " << direction << std::endl;
 }
 
 void OpenFieldArtillery::fight(Direction direction) {
@@ -43,9 +38,13 @@ UnitComponent * OpenFieldArtillery::clone() {
     return new OpenFieldArtillery(*this);
 }
 
-OpenFieldInfantry::~OpenFieldInfantry() = default;
+UnitComponent * OpenFieldInfantry::clone() {
+    return new OpenFieldInfantry(*this);
+}
 
-OpenFieldCavalry::~OpenFieldCavalry() = default;
+OpenFieldInfantry::~OpenFieldInfantry(){}
 
-OpenFieldArtillery::~OpenFieldArtillery() = default;
+OpenFieldCavalry::~OpenFieldCavalry(){}
+
+OpenFieldArtillery::~OpenFieldArtillery(){}
 

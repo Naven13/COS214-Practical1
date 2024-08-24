@@ -23,9 +23,9 @@ public:
 
     virtual void fight(Direction direction);
 
-    virtual ~Infantry();
+    virtual ~Infantry() override{}
 
-    virtual UnitComponent *clone();
+    virtual UnitComponent *clone() override;
 
     void applyDamage(int damage) override;
 

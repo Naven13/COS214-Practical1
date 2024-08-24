@@ -11,7 +11,7 @@ public:
 
     void fight(Direction direction) override;
 
-    ~OpenFieldInfantry();
+    ~OpenFieldInfantry() override;
 
     UnitComponent * clone() override;
 };
@@ -22,7 +22,7 @@ public:
 
     void fight(Direction direction) override;
 
-    ~OpenFieldCavalry();
+    ~OpenFieldCavalry() override;
 
     UnitComponent* clone() override;
 
@@ -35,7 +35,7 @@ public:
     void move(Direction direction) override;
     void fight(Direction direction) override;
 
-    ~OpenFieldArtillery() ;
+    ~OpenFieldArtillery() override;
 
     UnitComponent* clone() override;
 

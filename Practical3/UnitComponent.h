@@ -1,9 +1,7 @@
 #ifndef UNITCOMPONENT_H
 #define UNITCOMPONENT_H
 #include "Direction.h"
-#include <memory>
 #include <iostream>
-#include "BattleStrategy.h"
 class UnitComponent {
 protected:
     int defence;

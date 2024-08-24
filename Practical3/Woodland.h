@@ -11,7 +11,7 @@ public:
 
     void fight(Direction direction) override;
 
-    ~WoodlandInfantry() = default;
+    ~WoodlandInfantry() override {}
 
     UnitComponent *clone() override;
 };
@@ -24,7 +24,7 @@ public:
 
     UnitComponent *clone() override;
 
-    ~WoodlandCavalry() override = default;
+    ~WoodlandCavalry() override {}
 };
 
 class WoodlandArtillery : public Artillery {
@@ -35,7 +35,7 @@ public:
 
     UnitComponent *clone() override;
 
-    ~WoodlandArtillery() override = default;
+    ~WoodlandArtillery() override {}
 };
 
 #endif //WOODLANDS_H

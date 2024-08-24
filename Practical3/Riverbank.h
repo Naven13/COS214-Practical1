@@ -11,7 +11,7 @@ public:
 
     void fight(Direction direction) override;
 
-    ~RiverbankInfantry() override = default;
+    ~RiverbankInfantry() override {}
 
     UnitComponent * clone() override;
 };
@@ -22,7 +22,7 @@ public:
 
     void fight(Direction direction) override;
 
-    ~RiverbankCavalry() override = default;
+    ~RiverbankCavalry() override {}
 
     UnitComponent * clone() override;
 
@@ -34,7 +34,7 @@ public:
 
     void fight(Direction direction) override;
 
-    ~RiverbankArtillery() override = default;
+    ~RiverbankArtillery() override {}
 
     UnitComponent * clone() override;
 

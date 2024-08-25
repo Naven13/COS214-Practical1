@@ -37,3 +37,47 @@ bool Artillery::operator==(UnitComponent &other) {
     }
     return false;
 }
+
+void Artillery::move(Direction direction) {
+    switch (direction) {
+        case Direction::North:
+            ++y;
+            break;
+        case Direction::South:
+            --y;
+            break;
+        case Direction::East:
+            ++x;
+            break;
+        case Direction::West:
+            --x;
+            break;
+        default:
+            x = x;
+            break;
+    }
+}
+
+void Artillery::fight(Direction direction) {
+    switch (direction) {
+        case Direction::North:
+            ++y;
+            break;
+        case Direction::South:
+            --y;
+            break;
+        case Direction::East:
+            ++x;
+            break;
+        case Direction::West:
+            --x;
+            break;
+        default:
+            x = x;
+            break;
+    }
+}
+
+UnitComponent * Artillery::clone() {
+    return new Artillery(*this);
+}

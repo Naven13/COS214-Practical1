@@ -1,164 +1,44 @@
 #include "Woodland.h"
-void WoodlandInfantry::move(Direction direction) {
-    switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }
-    std::cout << "Infantry moves through the woodlands "<< direction << std::endl;
-}
 
 void WoodlandInfantry::fight(Direction direction) {
-    switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }
+    Infantry::fight(direction);
     std::cout << "Infantry attacks from the woodlands " << direction << std::endl;
 }
 
-UnitComponent * WoodlandInfantry::clone() {
-    return new WoodlandInfantry(*this);
-}
-
-void WoodlandCavalry::move(Direction direction) {
-    switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }
-     std::cout << "Cavalry moves through the woodlands "<< direction << std::endl;
-}
-
 void WoodlandCavalry::fight(Direction direction) {
-    switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }
+    Cavalry::fight(direction);
     std::cout << "Cavalry attacks from the woodlands " << direction << std::endl;
 }
 
-void WoodlandArtillery::move(Direction direction) {
-    switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }
-    std::cout << "Artillery moves through the woodlands "<< direction << std::endl;
-}
-
 void WoodlandArtillery::fight(Direction direction) {
-    switch (direction) {
-        case Direction::North:
-            ++y;
-            break;
-        case Direction::South:
-            --y;
-            break;
-        case Direction::East:
-            ++x;
-            break;
-        case Direction::West:
-            --x;
-            break;
-        default:
-            x = x;
-            break;
-    }
+    Artillery::fight(direction);
     std::cout << "Artillery attacks from the woodlands " << direction << std::endl;
 }
 
-Terrain WoodlandInfantry::getEnviroment() const {
-    return Infantry::getEnviroment();
+void WoodlandInfantry::move(Direction direction) {
+    Infantry::move(direction);
+    std::cout << "Infantry moves through the woodlands " << direction << std::endl;
 }
 
-bool WoodlandCavalry::operator==(UnitComponent &other) {
+void WoodlandArtillery::move(Direction direction) {
+    Artillery::move(direction);
+    std::cout << "Artillery moves through the woodlands " << direction << std::endl;
 }
 
-UnitComponent * WoodlandCavalry::clone() {
+void WoodlandCavalry::move(Direction direction) {
+    Cavalry::move(direction);
+    std::cout << "Cavalry moves through the woodlands " << direction << std::endl;
+}
+
+UnitComponent *WoodlandInfantry::clone() {
+    return new WoodlandInfantry(*this);
+}
+
+UnitComponent *WoodlandCavalry::clone() {
     return new WoodlandCavalry(*this);
 }
 
-void WoodlandCavalry::applyDamage(int damage) {
-    Cavalry::applyDamage(damage);
-}
-
-void WoodlandCavalry::die() {
-    Cavalry::die();
-}
-
-bool WoodlandArtillery::operator==(UnitComponent &other) {
-}
-
-UnitComponent * WoodlandArtillery::clone() {
+UnitComponent *WoodlandArtillery::clone() {
     return new WoodlandArtillery(*this);
 }
 
-void WoodlandArtillery::applyDamage(int damage) {
-    Artillery::applyDamage(damage);
-}
-
-void WoodlandArtillery::die() {
-    Artillery::die();
-}

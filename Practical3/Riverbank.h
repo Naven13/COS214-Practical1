@@ -11,39 +11,33 @@ public:
 
     void fight(Direction direction) override;
 
-    ~RiverbankInfantry() = default;
+    ~RiverbankInfantry() override {}
 
     UnitComponent * clone() override;
 };
 
-class RiverbankCavalry : public Cavalry, public UnitComponent{
+class RiverbankCavalry : public Cavalry{
 public:
     void move(Direction direction) override;
 
     void fight(Direction direction) override;
 
-    bool operator==(UnitComponent &other) override;
+    ~RiverbankCavalry() override {}
 
     UnitComponent * clone() override;
 
-    void applyDamage(int damage) override;
-
-    void die() override;
 };
 
-class RiverbankArtillery : public Artillery, public UnitComponent {
+class RiverbankArtillery : public Artillery {
 public:
     void move(Direction direction) override;
 
     void fight(Direction direction) override;
 
-    bool operator==(UnitComponent &other) override;
+    ~RiverbankArtillery() override {}
 
     UnitComponent * clone() override;
 
-    void applyDamage(int damage) override;
-
-    void die() override;
 };
 
 

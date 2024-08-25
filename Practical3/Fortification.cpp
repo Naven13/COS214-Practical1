@@ -5,7 +5,7 @@
 #include "LegionFactory.h"
 #include "OpenFieldFactory.h"
 #include "RiverbankFactory.h"
-#include "WoodlandsFactory.h"
+#include "WoodlandFactory.h"
 
 UnitComponent* Fortification::engage() {
     //Create fortification legion

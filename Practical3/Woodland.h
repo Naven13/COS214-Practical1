@@ -11,41 +11,31 @@ public:
 
     void fight(Direction direction) override;
 
-    Terrain getEnviroment() const override;
+    ~WoodlandInfantry() override {}
 
-    ~WoodlandInfantry() = default;
-
-    UnitComponent * clone() override;
+    UnitComponent *clone() override;
 };
 
-class WoodlandCavalry : public Cavalry, public UnitComponent {
+class WoodlandCavalry : public Cavalry {
 public:
     void move(Direction direction) override;
 
     void fight(Direction direction) override;
 
-    bool operator==(UnitComponent &other) override;
+    UnitComponent *clone() override;
 
-    UnitComponent * clone() override;
-
-    void applyDamage(int damage) override;
-
-    void die() override;
+    ~WoodlandCavalry() override {}
 };
 
-class WoodlandArtillery : public Artillery, public UnitComponent{
+class WoodlandArtillery : public Artillery {
 public:
     void move(Direction direction) override;
 
     void fight(Direction direction) override;
 
-    bool operator==(UnitComponent &other) override;
+    UnitComponent *clone() override;
 
-    UnitComponent * clone() override;
-
-    void applyDamage(int damage) override;
-
-    void die() override;
+    ~WoodlandArtillery() override {}
 };
 
 #endif //WOODLANDS_H

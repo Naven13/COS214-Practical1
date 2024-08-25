@@ -1,5 +1,5 @@
-#ifndef TACTICAL_PLANNER_H
-#define TACTICAL_PLANNER_H
+#ifndef TACTICALPLANNER_H
+#define TACTICALPLANNER_H
 
 #include "TacticalMemento.h"
 #include "BattleStrategy.h"
@@ -10,10 +10,12 @@ private:
 
 public:
     TacticalPlanner(BattleStrategy* strategy) : currentStrategy(strategy) {}
+    void setStrategy(BattleStrategy& strategy){this->currentStrategy = &strategy;}
     ~TacticalPlanner() { delete currentStrategy; }
 
     TacticalMemento* createMemento() const;
     void restoreMemento(TacticalMemento* memento);
 };
 
-#endif // TACTICAL_PLANNER_H
+
+#endif //TACTICALPLANNER_H

@@ -2,6 +2,7 @@
 #ifndef WOODLANDFACTORY_H
 #define WOODLANDFACTORY_H
 
+#include "Legion.h"
 #include "LegionFactory.h"
 #include "Woodland.h" // Includes all the Woodland units
 
@@ -10,14 +11,20 @@ public:
     Infantry* createInfantry() override {
         return new WoodlandInfantry();
     }
-    
+
     Cavalry* createCavalry() override {
         return new WoodlandCavalry();
     }
-    
+
     Artillery* createArtillery() override {
         return new WoodlandArtillery();
     }
+
+    Legion* createLegion() override {
+        return new Legion();
+    }
+
+    ~WoodlandFactory() override = default;
 };
 
 #endif // WOODLANDFACTORY_H

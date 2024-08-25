@@ -16,7 +16,7 @@ protected:
     LegionFactory* factory;
 
 public:
-    BattleStrategy(LegionFactory& factory);
+    BattleStrategy(LegionFactory& factory) : factory(&factory){}
 
     virtual UnitComponent* engage() =0;
 

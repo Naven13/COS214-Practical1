@@ -37,3 +37,47 @@ bool Infantry::operator==(UnitComponent &other) {
     }
     return false;
 }
+
+void Infantry::move(Direction direction) {
+    switch (direction) {
+        case Direction::North:
+            ++y;
+            break;
+        case Direction::South:
+            --y;
+            break;
+        case Direction::East:
+            ++x;
+            break;
+        case Direction::West:
+            --x;
+            break;
+        default:
+            x = x;
+            break;
+    }
+}
+
+void Infantry::fight(Direction direction) {
+    switch (direction) {
+        case Direction::North:
+            ++y;
+            break;
+        case Direction::South:
+            --y;
+            break;
+        case Direction::East:
+            ++x;
+            break;
+        case Direction::West:
+            --x;
+            break;
+        default:
+            x = x;
+            break;
+    }
+}
+
+UnitComponent * Infantry::clone() {
+    return new Infantry(*this);
+}

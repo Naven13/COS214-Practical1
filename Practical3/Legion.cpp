@@ -21,23 +21,50 @@ bool Legion::operator<(const Legion &other) const {
     return this->size < other.size;
 }
 
-/*bool Legion::operator==(const Legion &other) const {
-    if (other.getDefence() == defence && other.getDamage() == damage && other.getHealth() == health && other.getSize()
-        == size && other.getX() == x && other.getY() == y) {
-        return true;
-    }
-    return false;
-}*/
 
 void Legion::move(Direction direction) {
     for (auto it = units.begin(); it != units.end(); ++it) {
         (*it)->move(direction);
+    }
+    switch (direction) {
+        case Direction::North:
+            ++y;
+        break;
+        case Direction::South:
+            --y;
+        break;
+        case Direction::East:
+            ++x;
+        break;
+        case Direction::West:
+            --x;
+        break;
+        default:
+            x = x;
+        break;
     }
 }
 
 void Legion::fight(Direction direction) {
     for (auto it = units.begin(); it != units.end(); ++it) {
         (*it)->fight(direction);
+    }
+    switch (direction) {
+        case Direction::North:
+            ++y;
+        break;
+        case Direction::South:
+            --y;
+        break;
+        case Direction::East:
+            ++x;
+        break;
+        case Direction::West:
+            --x;
+        break;
+        default:
+            x = x;
+        break;
     }
 }
 
@@ -51,6 +78,7 @@ bool Legion::remove(UnitComponent &component) {
 
     for (auto it = units.begin(); it != units.end();) {
         if (*it == &component) {
+            delete *it;  // Delete the object first
             it = units.erase(it);
             deletedUnit = true;
         } else {

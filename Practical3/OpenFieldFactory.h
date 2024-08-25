@@ -22,6 +22,6 @@ public:
         return new Legion();
     }
 
-    ~OpenFieldFactory() override;
+    ~OpenFieldFactory() override = default;
 };
 #endif //OPENFIELDFACTORY_H

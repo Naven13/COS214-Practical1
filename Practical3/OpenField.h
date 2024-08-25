@@ -11,43 +11,35 @@ public:
 
     void fight(Direction direction) override;
 
-    ~OpenFieldInfantry();
+    ~OpenFieldInfantry() override;
 
     UnitComponent * clone() override;
 };
 
-class OpenFieldCavalry : public Cavalry, public UnitComponent {
+class OpenFieldCavalry : public Cavalry {
 public:
     void move(Direction direction) override;
 
     void fight(Direction direction) override;
 
-    ~OpenFieldCavalry();
+    ~OpenFieldCavalry() override;
 
     UnitComponent* clone() override;
 
-    bool operator==(UnitComponent &other) override;
 
-    void applyDamage(int damage) override;
-
-    void die() override;
 };
 
 
-class OpenFieldArtillery : public Artillery , public UnitComponent{
+class OpenFieldArtillery : public Artillery {
 public:
     void move(Direction direction) override;
     void fight(Direction direction) override;
 
-    ~OpenFieldArtillery() ;
+    ~OpenFieldArtillery() override;
 
     UnitComponent* clone() override;
 
-    bool operator==(UnitComponent &other) override;
 
-    void applyDamage(int damage) override;
-
-    void die() override;
 };
 
 

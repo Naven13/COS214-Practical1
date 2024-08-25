@@ -1,34 +1,31 @@
 #include "TacticalCommand.h"
 
-void TacticalCommand::setStrategy(BattleStrategy *strategy) {
-    if(strategy!=nullptr) {
+void TacticalCommand::setStrategy(TacticalMemento &memento) {
+    if(this->strategy!=nullptr) {
         //delete old stategy
-        delete strategy;
-        this->strategy = strategy;
+        delete this->strategy;
+        this->strategy = memento.getStoredStrategy();
     }
-    this->planner->restoreMemento(new TacticalMemento(strategy));
+    this->planner->restoreMemento(&memento);
 }
 
 void TacticalCommand::chooseBestStrategy() {
-
+    this->setStrategy(*archives->returnBestMemento());
 }
 
-void TacticalCommand::executeStrategy(UnitComponent& unit,UnitComponent& enemy) {
-    this->strategy->engage(unit,enemy);
+void TacticalCommand::executeStrategy(std::string& strategyName) {
+    this->strategy->engage();
+    archives->addTacticalMemento(this->planner->createMemento(),strategyName);
 }
 
-TacticalCommand::TacticalCommand(BattleStrategy &strategy) {
+TacticalCommand::TacticalCommand(BattleStrategy &strategy, WarArchives &archives) {
     this->strategy = &strategy;
-    this->planner = new TacticalPlanner(&strategy); 
-}
-
-TacticalCommand::TacticalCommand(BattleStrategy &strategy, WarArchives *archives) {
-    this->strategy = &strategy;
-    this->planner = new TacticalPlanner(&strategy);  // Initialize planner
-    this->archives = archives;
+    this->archives = &archives;
+    this->planner = new TacticalPlanner(&strategy);
 }
 
 TacticalCommand::~TacticalCommand() {
     delete planner;
     delete strategy;
+    delete archives;
 }

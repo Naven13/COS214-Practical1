@@ -37,3 +37,47 @@ bool Cavalry::operator==(UnitComponent &other) {
     }
     return false;
 }
+
+void Cavalry::move(Direction direction) {
+    switch (direction) {
+        case Direction::North:
+            ++y;
+            break;
+        case Direction::South:
+            --y;
+            break;
+        case Direction::East:
+            ++x;
+            break;
+        case Direction::West:
+            --x;
+            break;
+        default:
+            x = x;
+            break;
+    }
+}
+
+void Cavalry::fight(Direction direction) {
+    switch (direction) {
+        case Direction::North:
+            ++y;
+            break;
+        case Direction::South:
+            --y;
+            break;
+        case Direction::East:
+            ++x;
+            break;
+        case Direction::West:
+            --x;
+            break;
+        default:
+            x = x;
+            break;
+    }
+}
+
+UnitComponent * Cavalry::clone() {
+    return new Cavalry(*this);
+}

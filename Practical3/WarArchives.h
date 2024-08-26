@@ -12,10 +12,10 @@ private:
 public:
     ~WarArchives();
 
-    void addTacticalMemento(TacticalMemento* memento, const std::string& label);
+    void addTacticalMemento(TacticalMemento& memento, const std::string& label);
     void removeTacticalMemento(const std::string& label);
-    TacticalMemento* getMemento(const std::string& label);
-    TacticalMemento* returnBestMemento();
+    TacticalMemento& getMemento(const std::string& label);
+    void restoreBestMemento(TacticalPlanner& planner);
 };
 
 

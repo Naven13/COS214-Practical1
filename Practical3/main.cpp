@@ -517,10 +517,15 @@ int main() {
         std::cout << green << "\t" << "Test " << total << " passed! ;)" << reset << std::endl;
     }
 
-    /*LegionFactory* factory = new WoodlandFactory();
+    LegionFactory* factory = new RiverbankFactory();
+    Fortification* fortStrat = new Fortification(*factory);
     WarArchives* arch = new WarArchives();
-    Fortification fortStrat = new Fortification(*factory);
-    TacticalCommand(new Fortification(new WoodlandFactory()),new WarArchives());*/
+
+    TacticalCommand tc(*fortStrat,*arch);
+
+    std::string stratName = "Strat #1";
+    UnitComponent * units = tc.executeStrategy(stratName);
+    delete units;
 
 
     return 0;

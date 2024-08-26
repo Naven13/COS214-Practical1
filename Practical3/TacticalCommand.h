@@ -10,9 +10,9 @@ class TacticalCommand {
     TacticalPlanner* planner;
     WarArchives* archives;
 public:
-    void setStrategy(TacticalMemento& strategy);
+    void setStrategy(BattleStrategy& strategy);
     void chooseBestStrategy();
-    void executeStrategy(std::string& strategyName);
+    UnitComponent* executeStrategy(std::string& strategyName);
     /*TacticalCommand(BattleStrategy& strategy);*/
     TacticalCommand(BattleStrategy& strategy, WarArchives& archives);
     ~TacticalCommand();

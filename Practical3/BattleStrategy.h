@@ -22,7 +22,7 @@ public:
 
     virtual BattleStrategy* clone() const = 0;
 
-    virtual ~BattleStrategy() = default;
+    virtual ~BattleStrategy(){std::cout << "Destroy strat" << std::endl;};
 
     void setFactory(LegionFactory& newFactory) {
         if(factory != nullptr) {

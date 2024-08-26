@@ -2,24 +2,30 @@
 #define TACTICALMEMENTO_H
 
 #include "BattleStrategy.h"
+#include "TacticalPlanner.h"
 
 class TacticalMemento {
 private:
+
     BattleStrategy* storedStrategy;
 
 public:
-    // Default constructor
-    TacticalMemento() : storedStrategy(nullptr) {}
-
-    // Constructor with strategy
-    TacticalMemento(BattleStrategy* strategy) : storedStrategy(strategy->clone()) {}
-    ~TacticalMemento() { delete storedStrategy; }
-    // Method to capture and store the current strategy
-    void storeStrategy(BattleStrategy* strategy) {
-        delete storedStrategy;  // Prevent memory leak
-        storedStrategy = strategy->clone();
+    TacticalMemento(BattleStrategy& strategy)  {
+        this->storedStrategy = &strategy;
     }
+
+    ~TacticalMemento() {
+        std::cout << "Destroying memento" << std::endl;
+    }
+
+    // Method to capture and store the current strategy
+    void storeStrategy(BattleStrategy& strategy) {
+        storedStrategy = &strategy;
+    }
+
     BattleStrategy* getStoredStrategy() const { return storedStrategy; }
+
+
 };
 
 

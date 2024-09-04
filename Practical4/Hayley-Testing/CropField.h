@@ -85,10 +85,10 @@ public:
     void removeFarmUnit(FarmUnit *unit) override;
 
     /**
-    * @brief Returns an iterator to the start of the collection.
-    * @return FarmIterator Iterator to the start of the collection.
+    * @brief Returns an unique pointer to an iterator to the start of the collection.
+    * @return FarmIterator pointer to the start of the collection.
     */
-    FarmIterator getIterator() override;
+    std::unique_ptr<FarmIterator> getIterator() override;
 
     void storeCrops(int harvestBonus) override;
 
@@ -96,11 +96,15 @@ public:
 
     bool hasStorageSpace(int spaceNeeded) override;
 
+    bool isComposite() const override;
+
+    std::vector<std::shared_ptr<FarmUnit>> getChildren() const override;
+
    private:
     /**
        * @brief A vector holding pointers to the farm units in the crop field.
        */
-    std::vector<FarmUnit *> farms;
+    std::vector<std::shared_ptr<FarmUnit>> farms;
 };
 
 

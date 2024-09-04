@@ -85,7 +85,7 @@ public:
      * @brief Returns an iterator to the start of the collection.
      * @return FarmIterator Iterator to the start of the collection.
      */
-    virtual FarmIterator getIterator() = 0;
+    virtual std::unique_ptr<FarmIterator> getIterator() = 0;
 
     /**
     * @brief Changes the soil state of the farm uni
@@ -105,12 +105,12 @@ public:
      */
     virtual int getCurrentStorageCapacity() = 0;
 
-   /**
-    * @brief Returns a boolean value depending on if the farm unit has storage space
-    * @param spaceNeeded An int value for how much storage space is required
-    * @return An bool value indicating if the required space is available
-    */
-   virtual bool hasStorageSpace(int spaceNeeded) = 0;
+    /**
+     * @brief Returns a boolean value depending on if the farm unit has storage space
+     * @param spaceNeeded An int value for how much storage space is required
+     * @return An bool value indicating if the required space is available
+     */
+    virtual bool hasStorageSpace(int spaceNeeded) = 0;
 
     /**
      * @brief Returns an iterator to the beginning of the collection.
@@ -126,6 +126,16 @@ public:
      * @brief prints the current farm unit
      */
     virtual void printFarm() = 0;
+
+    // Method to check if this unit is a composite (has children)
+    virtual bool isComposite() const {
+        return false; // By default, assume it's not a composite (leaf node)
+    }
+
+    // Method to get children (only valid for composites)
+    virtual std::vector<std::shared_ptr<FarmUnit> > getChildren() const {
+        return {}; // Return an empty vector by default
+    }
 
 protected:
     /// The PImpl idiom for managing private implementation details.

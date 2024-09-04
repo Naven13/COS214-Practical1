@@ -137,6 +137,8 @@ public:
         return {}; // Return an empty vector by default
     }
 
+    virtual int getTotalCapacity() = 0;
+
 protected:
     /// The PImpl idiom for managing private implementation details.
     struct pImplFarmUnit;

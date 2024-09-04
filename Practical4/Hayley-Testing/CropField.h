@@ -47,7 +47,7 @@ public:
     * @brief Gets the crop type of the Crop field
     * @return The crop type
     */
-    virtual Crop getCropType() = 0;
+    virtual Crop getCropType();
 
     /**
     * @brief Returns an iterator pointing to the end of the farm units in the crop field.
@@ -68,7 +68,7 @@ public:
 
     /**
      * @brief Changes the soil state of the farm uni
-     * @param soilState A pointer to the new soil state of the farm unit
+     * @param soilState A reference to the new soil state of the farm unit
      */
      void changeSoilState(SoilState &soilState) override;
 
@@ -90,7 +90,13 @@ public:
     */
     FarmIterator getIterator() override;
 
-private:
+    void storeCrops(int harvestBonus) override;
+
+    int getCurrentStorageCapacity() override;
+
+    bool hasStorageSpace(int spaceNeeded) override;
+
+   private:
     /**
        * @brief A vector holding pointers to the farm units in the crop field.
        */

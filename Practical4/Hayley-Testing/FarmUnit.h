@@ -8,7 +8,6 @@
 #include "SoilState.h"
 
 
-
 /**
  * @brief Abstract base class representing the component for the composite pattern
  *
@@ -90,9 +89,28 @@ public:
 
     /**
     * @brief Changes the soil state of the farm uni
-    * @param soilState A pointer to the new soil state of the farm unit
+    * @param soilState A reference to the new soil state of the farm unit
     */
-    virtual void changeSoilState(SoilState *soilState) = 0;
+    virtual void changeSoilState(SoilState &soilState) = 0;
+
+    /**
+     * @brief Stores the current crops
+     * @param harvestBonus An int value for the harvest bonus if any
+     */
+    virtual void storeCrops(int harvestBonus = 1) = 0;
+
+    /**
+     * @brief Returns the current storage capacity of the farm unit
+     * @return An int value of the current storage capacity
+     */
+    virtual int getCurrentStorageCapacity() = 0;
+
+   /**
+    * @brief Returns a boolean value depending on if the farm unit has storage space
+    * @param spaceNeeded An int value for how much storage space is required
+    * @return An bool value indicating if the required space is available
+    */
+   virtual bool hasStorageSpace(int spaceNeeded) = 0;
 
     /**
      * @brief Returns an iterator to the beginning of the collection.
@@ -109,14 +127,11 @@ public:
      */
     virtual void printFarm() = 0;
 
-
-
 protected:
-   /// The PImpl idiom for managing private implementation details.
-   class pImplFarmUnit;
+    /// The PImpl idiom for managing private implementation details.
+    struct pImplFarmUnit;
 
     /// Unique pointer to the implementation details of the `FarmUnit`.
     std::unique_ptr<pImplFarmUnit> impl;
-
 };
 #endif //FARMUNIT_H

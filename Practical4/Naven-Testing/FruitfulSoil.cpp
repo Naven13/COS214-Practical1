@@ -11,11 +11,16 @@ void FruitfulSoil::rain() {
 }
 
 void FruitfulSoil::harvestCrops() {
-    int spaceNeeded = farmUnit->getCropType().harvestYield * 3;
-    if(farmUnit->hasStorageSpace(spaceNeeded)) {
-        this->farmUnit->storeCrops(3);
+    // Assume farmUnit is a pointer to a CropField or FarmUnit and is accessible
+    int harvestYield = 3; // Fruitful soil has triple the normal yield
+    int spaceNeeded = harvestYield; // Amount of space needed for this harvest
+
+    // Check if the farm unit has enough storage space for the harvested crops
+    if (farmUnit->hasStorageSpace(spaceNeeded)) {
+        farmUnit->storeCrops(harvestYield); // Store the harvested crops
+        std::cout << "FruitfulSoil: " << harvestYield << " crops harvested and stored." << std::endl;
     } else {
-        std::cout << "More space required for harvest, build a new barn." <<std::endl;
+        std::cout << "FruitfulSoil: Not enough space for harvest. Consider building a new barn." << std::endl;
     }
 }
 

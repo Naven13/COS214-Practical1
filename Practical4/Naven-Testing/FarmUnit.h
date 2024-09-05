@@ -37,6 +37,8 @@ public:
      */
     FarmUnit(int totalCapacity, int surfaceArea, CropType cropType, SoilState &soilState);
 
+    FarmUnit();
+
     /**
      * @brief Gets the total capacity of the farm unit.
      *

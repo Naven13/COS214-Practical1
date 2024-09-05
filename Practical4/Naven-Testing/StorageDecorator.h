@@ -43,6 +43,9 @@ public:
     void harvest() override {
         // Logic for harvesting with additional storage
         std::cout << "Harvesting crops with extra storage available." << std::endl;
+
+
+
     }
 
 protected:
@@ -50,6 +53,9 @@ protected:
     void increaseProduction() override {
         // Example logic to increase production
         std::cout << "Increasing production due to added storage." << std::endl;
+
+        
+
     }
 };
 

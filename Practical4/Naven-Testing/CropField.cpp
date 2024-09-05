@@ -71,11 +71,11 @@ void CropField::storeCrops(int harvestBonus) {
 }
 
 int CropField::getCurrentStorageCapacity() {
-    return this->impl->currentCapacity();
+    return this->impl->currentCapacity;
 }
 
 bool CropField::hasStorageSpace(int spaceNeeded) {
-    bool space = (this->impl->currentCapacity() + spaceNeeded) <= this->impl->totalCapacity();
+    bool space = (this->impl->currentCapacity + spaceNeeded) <= this->impl->totalCapacity;
     if (!space) {
         this->callTruck(Event::STORAGE_FULL);
     }

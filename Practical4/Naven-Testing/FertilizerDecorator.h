@@ -1,39 +1,20 @@
-#ifndef FARM_DECORATOR_H
-#define FARM_DECORATOR_H
+// FertilizerDecorator.h
+#ifndef FERTILIZERDECORATOR_H
+#define FERTILIZERDECORATOR_H
 
-#include "FarmUnit.h"
-#include "SoilState.h"
+#include "FarmDecorator.h"
 
-class FarmDecorator : public FarmUnit {
-protected:
-    FarmUnit* wrapee;  
-    virtual int getLeftoverCapacity() = 0;
-    virtual void increaseProduction() = 0;
-    virtual void harvest() = 0;
+class FertilizerDecorator : public FarmDecorator {
+private:
+    int yieldMultiplier;
 
 public:
-    FarmDecorator(FarmUnit* farmUnit) : wrapee(farmUnit) {}
-    virtual ~FarmDecorator() {
-        delete wrapee;
-    }
+    // Constructor
+    FertilizerDecorator(FarmUnit* farmUnit) : FarmDecorator(farmUnit), yieldMultiplier(1) {}
 
-    virtual int getTotalCapacity() = 0;
+    void increaseProduction() override;
 
-    int getSurfaceArea() override {
-        return wrapee->getSurfaceArea();
-    }
-
-    std::string getsoilstateName(){
-        return wrapee->getSoilStateName();
-    }
-
-    Crop getCropType() override {
-        return wrapee->getCropType();
-    }
-
-    void printFarm() override {
-        wrapee->printFarm();
-    }
+    int harvest();
 };
 
-#endif // FARM_DECORATOR_H
+#endif // FERTILIZERDECORATOR_H

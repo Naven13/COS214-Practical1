@@ -35,7 +35,7 @@ public:
 
     virtual void increaseProduction() = 0;
 
-    virtual void harvest() = 0;
+    virtual int harvest() = 0;
 };
 
 #endif // FARM_DECORATOR_H

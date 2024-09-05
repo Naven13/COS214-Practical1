@@ -152,7 +152,13 @@ public:
     */
     virtual void fertilizeCrops() = 0;
 
+    //virtual void harvestCrops() = 0;
+
     virtual void collectCrops() = 0;
+
+    SoilState* getSoilState() const {
+        return soilState;
+    }
 
 protected:
     /// The PImpl idiom for managing private implementation details.
@@ -161,6 +167,7 @@ protected:
     /// Unique pointer to the implementation details of the `FarmUnit`.
     std::unique_ptr<pImplFarmUnit> impl;
 
+    SoilState* soilState;
 
     friend class Truck;
 };

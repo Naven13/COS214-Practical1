@@ -13,8 +13,8 @@ struct FarmUnit::pImplFarmUnit {
     std::vector<Truck *> observers;
 
     pImplFarmUnit(int totalCapacity, int surfaceArea, Crop crop,
-                  SoilState &soilState) : totalCapacity(totalCapacity), soilState(&soilState), surfaceArea(surfaceArea),
-                                          crop(crop) {
+                  SoilState &soilState) : totalCapacity(totalCapacity), surfaceArea(surfaceArea),
+                                          crop(crop) , soilState(&soilState){
     }
 };
 
@@ -24,6 +24,7 @@ int CropField::getTotalcapacity() {
     for (auto item = it.begin(); it != it.end(); ++it) {
         //implement
     }
+    return total;
 }
 
 int CropField::getSurfaceArea() {
@@ -32,6 +33,7 @@ int CropField::getSurfaceArea() {
     for (auto item = it.begin(); it != it.end(); ++it) {
         //implement
     }
+    return total;
 }
 
 std::string &CropField::getSoilStateName() {

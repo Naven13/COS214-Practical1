@@ -2,13 +2,17 @@
 #define FARMUNIT_H
 #include "Iterator.h"
 #include <memory>
+#include <vector>
 #include "Crop.h"
-
+#include "TraversalStrategy.h"
 #include "FarmIterator.h"
 #include "SoilState.h"
 #include "Truck.h"
 
 #include "Event.h"
+class Truck;
+class SoilState;
+class FarmIterator;
 
 /**
  * @brief Abstract base class representing the component for the composite pattern
@@ -36,8 +40,6 @@ public:
      * @param soilState The soil state of the farm unit.
      */
     FarmUnit(int totalCapacity, int surfaceArea, CropType cropType, SoilState &soilState);
-
-    FarmUnit();
 
     /**
      * @brief Gets the total capacity of the farm unit.

@@ -36,7 +36,6 @@ public:
      * @param soilState The soil state of the farm unit.
      */
     FarmUnit(int totalCapacity, int surfaceArea, CropType cropType, SoilState &soilState);
-    FarmUnit ();
 
     /**
      * @brief Gets the total capacity of the farm unit.

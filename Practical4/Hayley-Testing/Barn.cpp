@@ -53,11 +53,11 @@ void Barn::storeCrops(int harvestBonus) {
 }
 
 int Barn::getCurrentStorageCapacity() {
-    return this->impl->currentCapacity();
+    return this->impl->currentCapacity;
 }
 
 bool Barn::hasStorageSpace(int spaceNeeded) {
-    bool space = (this->impl->currentCapacity() + spaceNeeded) <= this->impl->totalCapacity();
+    bool space = (this->impl->currentCapacity + spaceNeeded) <= this->impl->totalCapacity;
     if (!space) {
         this->callTruck(Event::STORAGE_FULL);
     }

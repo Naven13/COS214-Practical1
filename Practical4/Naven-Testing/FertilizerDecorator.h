@@ -7,6 +7,13 @@
 class FarmDecorator : public FarmUnit {
 protected:
     FarmUnit* wrapee;  // The farm unit being decorated
+    // Method to calculate the leftover capacity after some storage has been used
+    virtual int getLeftoverCapacity() = 0;
+    // Derived classes will override this to implement specific production increases
+    virtual void increaseProduction() = 0;
+
+    // Derived classes will override this to implement specific harvesting logic
+    virtual void harvest() = 0;
 
 public:
     // Constructor that takes a FarmUnit pointer to wrap
@@ -39,14 +46,6 @@ public:
     void printFarm() override {
         wrapee->printFarm();
     }
-
-    // Method to calculate the leftover capacity after some storage has been used
-    virtual int getLeftoverCapacity() = 0;
-    // Derived classes will override this to implement specific production increases
-    virtual void increaseProduction() = 0;
-
-    // Derived classes will override this to implement specific harvesting logic
-    virtual void harvest() = 0;
 };
 
 #endif // FARM_DECORATOR_H

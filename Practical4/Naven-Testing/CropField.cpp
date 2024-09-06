@@ -119,3 +119,7 @@ void CropField::collectCrops() {
     }
     this->impl->currentCapacity = 0;
 }
+
+SoilState* CropField::getSoil(){
+    return this->impl->soilState;
+}

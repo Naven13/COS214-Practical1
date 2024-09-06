@@ -59,8 +59,7 @@ int main() {
 
     // Test: Harvest crops in FloodedSoil (should not allow harvest)
     std::cout << "Attempting to harvest crops in FloodedSoil..." << std::endl;
-    cropFieldPtr->getSoilState()->harvestCrops();  // No crops should be harvested in FloodedSoil
-
+    cropFieldPtr->getSoil()->harvestCrops(); // No crops should be harvested in FloodedSoil
     // Check the current storage capacity after all operations
     std::cout << "\nCurrent Storage Capacity: " << cropFieldPtr->getCurrentStorageCapacity() << std::endl; 
 

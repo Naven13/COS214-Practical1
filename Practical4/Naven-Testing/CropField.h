@@ -32,6 +32,7 @@ public:
     void callTruck(Event e) override;
     void fertilizeCrops() override;
     void collectCrops() override;
+    SoilState* getSoil();
 
 private:
     std::vector<std::shared_ptr<FarmUnit>> farms;  // Stores child units

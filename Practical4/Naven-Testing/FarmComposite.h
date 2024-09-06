@@ -7,8 +7,7 @@
 #include "BFSStrategy.h"
 
 class FarmComposite : public FarmUnit {
-    typedef std::shared_ptr<FarmUnit> FarmUnitPtr; ///< Type alias for shared pointer to FarmUnit.
-    typedef std::vector<std::shared_ptr<FarmUnit> > FarmUnitPtrVector;
+    
 
 public:
     /**
@@ -24,6 +23,9 @@ public:
     FarmComposite(int totalCapacity, int surfaceArea, CropType cropType, SoilState &soilState) : FarmUnit(
         totalCapacity, surfaceArea, cropType, soilState) {
     }
+
+    typedef std::shared_ptr<FarmUnit> FarmUnitPtr; ///< Type alias for shared pointer to FarmUnit.
+    typedef std::vector<std::shared_ptr<FarmUnit> > FarmUnitPtrVector;
 
     virtual void addFarmUnit(FarmUnitPtr unit) = 0;
 

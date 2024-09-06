@@ -1,8 +1,8 @@
 #include "CropField.h"
-
-#include <algorithm>
-
 #include "Truck.h"
+#include "FarmUnit.h"
+#include <algorithm>
+#include "FarmIterator.h"
 
 struct FarmUnit::pImplFarmUnit {
     int totalCapacity;
@@ -10,46 +10,39 @@ struct FarmUnit::pImplFarmUnit {
     Crop crop;
     SoilState *soilState;
     int currentCapacity = 0;
-    std::vector<Truck *> observers;
+    std::vector<Truck*> observers;
 
     pImplFarmUnit(int totalCapacity, int surfaceArea, Crop crop,
                   SoilState &soilState) : totalCapacity(totalCapacity), surfaceArea(surfaceArea),
                                           crop(crop) , soilState(&soilState){
     }
 };
+CropField::CropField(int totalCapacity, int surfaceArea, CropType cropType, SoilState &soilState)
+    : FarmComposite(totalCapacity, surfaceArea, cropType, soilState) {}
 
 int CropField::getTotalcapacity() {
-    int total = this->impl->totalCapacity;
-    FarmIterator it(new BFSStrategy(), this->farms);
-    for (auto item = it.begin(); it != it.end(); ++it) {
-        //implement
-    }
-    return total;
+    return this->impl->totalCapacity;  // Use inherited impl from FarmUnit
 }
 
 int CropField::getSurfaceArea() {
-    int total = this->impl->surfaceArea;
-    FarmIterator it(new BFSStrategy(), this->farms);
-    for (auto item = it.begin(); it != it.end(); ++it) {
-        //implement
-    }
-    return total;
+    return this->impl->surfaceArea;  // Use inherited impl from FarmUnit
 }
 
 std::string &CropField::getSoilStateName() {
-    return this->impl->soilState->getName();
+    return this->impl->soilState->getName();  // Use inherited impl from FarmUnit
 }
 
 Crop CropField::getCropType() {
-    return this->impl->crop;
+    return this->impl->crop;  // Use inherited impl from FarmUnit
 }
 
+// Implement other methods using the impl pointer...
 void CropField::printFarm() {
 }
 
 void CropField::changeSoilState(SoilState &soilState) {
     //delete the current state
-    delete this->impl->soilState;
+    //delete this->impl->soilState;
     //add the new state
     this->impl->soilState = &soilState;
 
@@ -58,10 +51,10 @@ void CropField::changeSoilState(SoilState &soilState) {
     }
 }
 
-void CropField::addFarmUnit(FarmUnitPtr unit) {
+void CropField::addFarmUnit(std::shared_ptr<FarmUnit> unit) {
 }
 
-void CropField::removeFarmUnit(FarmUnitPtr unit) {
+void CropField::removeFarmUnit(std::shared_ptr<FarmUnit> unit) {
 }
 
 std::unique_ptr<FarmIterator> CropField::getIterator() {

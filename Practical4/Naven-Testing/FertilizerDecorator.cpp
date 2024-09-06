@@ -1,4 +1,3 @@
-// FertilizerDecorator.cpp
 #include "FertilizerDecorator.h"
 #include <iostream>
 
@@ -15,8 +14,10 @@ int FertilizerDecorator::harvest() {
         // Call the harvestCrops() method from the SoilState
         currentSoilState->harvestCrops();
 
+        // Get the base yield from the wrapped FarmUnit
+        int baseYield = wrapee->getCurrentStorageCapacity();  // Or a method that returns base yield
+
         // Modify the yield using the multiplier
-        int baseYield = this->harvest();
         int enhancedYield = baseYield * yieldMultiplier;
 
         // Store the enhanced yield in the decorated FarmUnit

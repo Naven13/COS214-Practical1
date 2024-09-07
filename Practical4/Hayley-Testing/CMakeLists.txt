@@ -35,4 +35,6 @@ add_executable(Practical4 main.cpp
         LogisticsTruck.cpp
         LogisticsTruck.h
         Event.h
+        FarmDecorator.cpp
+        FarmDecorator.h
 )
